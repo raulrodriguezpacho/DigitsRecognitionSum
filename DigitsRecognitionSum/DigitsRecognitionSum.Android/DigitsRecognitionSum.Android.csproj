@@ -93,16 +93,6 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\tensorflow-android-1.7.0-rc0\tensorflow-android-1.7.0-rc0.csproj">
-      <Project>{c8f31b89-abc5-40f5-98d0-4695e3156288}</Project>
-      <Name>tensorflow-android-1.7.0-rc0</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DigitsRecognitionSum\DigitsRecognitionSum.csproj">
-      <Project>{acbf7508-25e6-482b-a2cc-6de68347df60}</Project>
-      <Name>DigitsRecognitionSum</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +100,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\colors.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DigitsRecognitionSum\DigitsRecognitionSum.csproj">
+      <Project>{acbf7508-25e6-482b-a2cc-6de68347df60}</Project>
+      <Name>DigitsRecognitionSum</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -80,7 +80,7 @@ namespace DigitsRecognitionSum.Droid
 
         public void Clear()
         {
-            drawCanvas.DrawColor(Color.White, PorterDuff.Mode.Clear);
+            drawCanvas.DrawColor(Color.White, PorterDuff.Mode.Add);
             Invalidate();
         }
 

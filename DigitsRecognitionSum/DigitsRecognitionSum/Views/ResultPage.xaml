@@ -12,31 +12,34 @@
         </ResourceDictionary>
     </base:ViewPageBase.Resources>
     <base:ViewPageBase.Content>
-        <Grid>
 
-            <Grid Margin="10" HorizontalOptions="FillAndExpand">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width=".7*" />
-                    <ColumnDefinition Width=".3*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label Text="RESULT.." TextColor="White" FontSize="22" />
+            </StackLayout>
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Grid Margin="10" HorizontalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".7*" />
+                        <ColumnDefinition Width=".3*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <renderers:ImageDigitRendererView Grid.Row="0" Grid.Column="0" HeightRequest="140" WidthRequest="140" DigitOrder="1" />
+                    <renderers:ImageDigitRendererView Grid.Row="1" Grid.Column="0" HeightRequest="140" WidthRequest="140" DigitOrder="2" />
+                    <Label Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" VerticalOptions="Center" Text="+" TextColor="White" FontSize="120" />
+                    <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" HeightRequest="2" Margin="20,5,20,5" />
+                    <Label Grid.Row="3" Grid.Column="0"  TextColor="{Binding Result, Converter={StaticResource ResultToColorConverter}}" FontSize="140" Text="{Binding Result}" HorizontalOptions="Center" />
+                </Grid>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
+                <Button Text="AGAIN.." Command="{Binding StartAgainCommand}" FontSize="22" VerticalOptions="End" HeightRequest="66"></Button>
+            </StackLayout>
+        </StackLayout>
 
-                <renderers:ImageDigitRendererView Grid.Row="0" Grid.Column="0" HeightRequest="160" WidthRequest="160" DigitOrder="1" />
-                <renderers:ImageDigitRendererView Grid.Row="1" Grid.Column="0" HeightRequest="160" WidthRequest="160" DigitOrder="2" />
-                <Label Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" VerticalOptions="Center" Text="+" TextColor="White" FontSize="120" />
-                <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" HeightRequest="2" Margin="20,5,20,5" />
-                <Label Grid.Row="3" Grid.Column="0"  TextColor="{Binding Result, Converter={StaticResource ResultToColorConverter}}" FontSize="120" Text="{Binding Result}" HorizontalOptions="Center" />
-
-            </Grid>
-
-            <Button Text="REPEAT.." Command="{Binding StartAgainCommand}" FontSize="22" VerticalOptions="End"></Button>
-
-        </Grid>
     </base:ViewPageBase.Content>
 </base:ViewPageBase>
