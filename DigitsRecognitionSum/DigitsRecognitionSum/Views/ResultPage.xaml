@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:ViewPageBase xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:base="clr-namespace:DigitsRecognitionSum.Base"
+             xmlns:renderers="clr-namespace:DigitsRecognitionSum.Renderers"
+             xmlns:converters="clr-namespace:DigitsRecognitionSum.Converters"
+             x:Class="DigitsRecognitionSum.Views.ResultPage"
+             BackgroundColor="Black" Title="RESULT">
+    <base:ViewPageBase.Resources>
+        <ResourceDictionary>
+            <converters:ResultToColorConverter x:Key="ResultToColorConverter" />
+        </ResourceDictionary>
+    </base:ViewPageBase.Resources>
+    <base:ViewPageBase.Content>
+        <Grid>
+
+            <Grid Margin="10" HorizontalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".7*" />
+                    <ColumnDefinition Width=".3*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <renderers:ImageDigitRendererView Grid.Row="0" Grid.Column="0" HeightRequest="160" WidthRequest="160" DigitOrder="1" />
+                <renderers:ImageDigitRendererView Grid.Row="1" Grid.Column="0" HeightRequest="160" WidthRequest="160" DigitOrder="2" />
+                <Label Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" VerticalOptions="Center" Text="+" TextColor="White" FontSize="120" />
+                <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" HeightRequest="2" Margin="20,5,20,5" />
+                <Label Grid.Row="3" Grid.Column="0"  TextColor="{Binding Result, Converter={StaticResource ResultToColorConverter}}" FontSize="120" Text="{Binding Result}" HorizontalOptions="Center" />
+
+            </Grid>
+
+            <Button Text="REPEAT.." Command="{Binding StartAgainCommand}" FontSize="22" VerticalOptions="End"></Button>
+
+        </Grid>
+    </base:ViewPageBase.Content>
+</base:ViewPageBase>

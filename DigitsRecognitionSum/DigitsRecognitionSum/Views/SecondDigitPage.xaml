@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:ViewPageBase xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:base="clr-namespace:DigitsRecognitionSum.Base"
+             xmlns:renderers="clr-namespace:DigitsRecognitionSum.Renderers"
+             x:Class="DigitsRecognitionSum.Views.SecondDigitPage"
+             BackgroundColor="Black" Title="SECOND DIGIT">
+    
+    <base:ViewPageBase.Content>
+
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label Text="DRAW SECOND DIGIT.." TextColor="White" FontSize="22" />
+            </StackLayout>
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <renderers:PaintRendererView x:Name="digit" BackgroundColor="White" DigitOrder="2"
+                    HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="{Binding DigitSize}" WidthRequest="{Binding DigitSize}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
+                <Button Text="CLEAR" Command="{Binding ClearCommand}" FontSize="22"></Button>
+                <Button Text="=" Command="{Binding SumCommand}" FontSize="44"></Button>
+            </StackLayout>
+        </StackLayout>
+                            
+    </base:ViewPageBase.Content>
+</base:ViewPageBase>

@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TensorFlow.Droid.Dependencies", "TensorFlow.Droid.Dependencies\TensorFlow.Droid.Dependencies.csproj", "{DBDC54F8-7193-4D5A-8F16-11A4DC6F2CE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binding_TensorflowAndroid", "TensorFlow.Droid.Dependencies\AndroidBindings\Binding_TensorflowAndroid\Binding_TensorflowAndroid.csproj", "{446607A3-1628-4F4D-A898-E412E2FDA492}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tensorflow-android-1.7.0-rc0", "tensorflow-android-1.7.0-rc0\tensorflow-android-1.7.0-rc0.csproj", "{C8F31B89-ABC5-40F5-98D0-4695E3156288}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TensorFlowDemoApp.Android", "TensorFlowDemoApp\TensorFlowDemoApp.Android\TensorFlowDemoApp.Android.csproj", "{9F155834-CE2E-4D67-8571-490B4BBA47C4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TensorFlowDemoApp", "TensorFlowDemoApp\TensorFlowDemoApp\TensorFlowDemoApp.csproj", "{CA010655-6D75-40E3-B960-562F1B784B12}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ModelTrainingMNIST", "ModelTrainingMNIST\ModelTrainingMNIST.pyproj", "{B6C881D0-9C43-43DF-9432-441B597FEF1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitsRecognitionSum.Android", "DigitsRecognitionSum\DigitsRecognitionSum.Android\DigitsRecognitionSum.Android.csproj", "{A79F0285-7D79-440D-9DD8-D6983B87AF4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitsRecognitionSum", "DigitsRecognitionSum\DigitsRecognitionSum\DigitsRecognitionSum.csproj", "{ACBF7508-25E6-482B-A2CC-6DE68347DF60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBDC54F8-7193-4D5A-8F16-11A4DC6F2CE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBDC54F8-7193-4D5A-8F16-11A4DC6F2CE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBDC54F8-7193-4D5A-8F16-11A4DC6F2CE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBDC54F8-7193-4D5A-8F16-11A4DC6F2CE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{446607A3-1628-4F4D-A898-E412E2FDA492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{446607A3-1628-4F4D-A898-E412E2FDA492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{446607A3-1628-4F4D-A898-E412E2FDA492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{446607A3-1628-4F4D-A898-E412E2FDA492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8F31B89-ABC5-40F5-98D0-4695E3156288}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8F31B89-ABC5-40F5-98D0-4695E3156288}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8F31B89-ABC5-40F5-98D0-4695E3156288}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8F31B89-ABC5-40F5-98D0-4695E3156288}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F155834-CE2E-4D67-8571-490B4BBA47C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F155834-CE2E-4D67-8571-490B4BBA47C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F155834-CE2E-4D67-8571-490B4BBA47C4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9F155834-CE2E-4D67-8571-490B4BBA47C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F155834-CE2E-4D67-8571-490B4BBA47C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F155834-CE2E-4D67-8571-490B4BBA47C4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{CA010655-6D75-40E3-B960-562F1B784B12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA010655-6D75-40E3-B960-562F1B784B12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA010655-6D75-40E3-B960-562F1B784B12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA010655-6D75-40E3-B960-562F1B784B12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6C881D0-9C43-43DF-9432-441B597FEF1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6C881D0-9C43-43DF-9432-441B597FEF1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A79F0285-7D79-440D-9DD8-D6983B87AF4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A79F0285-7D79-440D-9DD8-D6983B87AF4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A79F0285-7D79-440D-9DD8-D6983B87AF4F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A79F0285-7D79-440D-9DD8-D6983B87AF4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A79F0285-7D79-440D-9DD8-D6983B87AF4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A79F0285-7D79-440D-9DD8-D6983B87AF4F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{ACBF7508-25E6-482B-A2CC-6DE68347DF60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACBF7508-25E6-482B-A2CC-6DE68347DF60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACBF7508-25E6-482B-A2CC-6DE68347DF60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACBF7508-25E6-482B-A2CC-6DE68347DF60}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {217EF60A-1266-46E0-A19B-AF7110979D03}
+	EndGlobalSection
+EndGlobal

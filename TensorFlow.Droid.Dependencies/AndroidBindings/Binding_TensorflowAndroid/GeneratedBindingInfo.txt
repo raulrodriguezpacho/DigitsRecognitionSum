@@ -1,0 +1,6 @@
+Binding for:
+org.tensorflow:tensorflow-android:+
+
+Dependencies:
+
+tensorflow-android-1.7.0-rc0.aar,    Path=C:\Users\RAUL\.gradle\caches\modules-2\files-2.1\org.tensorflow\tensorflow-android\1.7.0-rc0\e6486f305de1bf0b307d6291237f411bccabff4a\tensorflow-android-1.7.0-rc0.aar
