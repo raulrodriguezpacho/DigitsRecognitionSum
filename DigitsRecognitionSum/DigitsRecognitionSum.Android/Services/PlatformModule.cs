@@ -21,6 +21,7 @@ namespace DigitsRecognitionSum.Droid.Services
             base.Load(builder);            
             builder.RegisterType<DeviceService>().As<IDeviceService>();
             builder.RegisterType<FileSystemService>().As<IFileSystemService>();
+            builder.RegisterType<DigitClassifierService>().As<IDigitClassifierService>();
         }
     }
 }

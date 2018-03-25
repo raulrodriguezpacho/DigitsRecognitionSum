@@ -40,9 +40,6 @@ namespace DigitsRecognitionSum.ViewModels
                 return _sumCommand ?? (_sumCommand = new Command(() =>
                 {                    
                     MessagingCenter.Send<ViewModelBase, string>(this, "save", "1");
-
-                    // TODO
-
                     _navigationService.NavigateToAsync<SecondDigitViewModel>();
                 }));
             }
