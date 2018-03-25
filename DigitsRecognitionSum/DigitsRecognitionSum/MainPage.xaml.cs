@@ -1,4 +1,5 @@
 ﻿using DigitsRecognitionSum.Base;
+using DigitsRecognitionSum.ViewModels;
 using DigitsRecognitionSum.Views;
 using System;
 using System.Collections.Generic;
@@ -21,11 +22,7 @@ namespace DigitsRecognitionSum.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            Device.StartTimer(TimeSpan.FromSeconds(.1), () =>
-            {
-                this.Navigation.PushAsync(new FirstDigitPage());
-                return false;
-            });
+            ((MainViewModel)this.BindingContext).Check();
         }
     }
 }

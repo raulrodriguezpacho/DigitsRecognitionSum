@@ -3,14 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:DigitsRecognitionSum"
              xmlns:base="clr-namespace:DigitsRecognitionSum.Base"
+             xmlns:converters="clr-namespace:DigitsRecognitionSum.Converters"
              x:Class="DigitsRecognitionSum.Views.MainPage"
-             BackgroundColor="Black">
+             BackgroundColor="Black" Title="CHECK MODEL">
 
+    <base:ViewPageBase.Resources>
+        <ResourceDictionary>
+            <converters:BoolToColorConverter x:Key="BoolToColorConverter" />
+        </ResourceDictionary>
+    </base:ViewPageBase.Resources>
     <base:ViewPageBase.Content>
 
-        <StackLayout>
+        <Grid VerticalOptions="Center">
 
-        </StackLayout>
+            <ActivityIndicator Color="#B51011" IsEnabled="{Binding IsBusy}" IsRunning="{Binding IsBusy}" WidthRequest="80" HeightRequest="80" HorizontalOptions="Center"  VerticalOptions="Center"/>
+            <Label TextColor="{Binding IsModelAvailable, Converter={StaticResource BoolToColorConverter}}" Text="{Binding Message}" HorizontalOptions="Center"/>
+
+        </Grid>
         
     </base:ViewPageBase.Content>
     

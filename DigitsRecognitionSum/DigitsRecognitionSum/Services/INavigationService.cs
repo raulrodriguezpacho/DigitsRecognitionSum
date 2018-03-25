@@ -13,6 +13,6 @@ namespace DigitsRecognitionSum.Services
         object NavigationData { get; }
         Task NavigateBackAsync();
         Task NavigateToAsync<TViewModel>(object parameter = null) where TViewModel : ViewModelBase;
-        Task NavigateToRootAsync();
+        Task NavigateToRootAsync();        
     }
 }

@@ -21,7 +21,7 @@ namespace DigitsRecognitionSum.Services
         }
 
         public Task NavigateBackAsync()
-        {
+        {            
             return this.NavigationPage.Navigation.PopModalAsync(false);
         }
 
@@ -35,6 +35,6 @@ namespace DigitsRecognitionSum.Services
             var viewName = viewModelType.FullName.Replace(".ViewModels.", ".Views.").Replace("ViewModel", "Page");
             var viewType = Type.GetType(viewName);
             return (Page)Activator.CreateInstance(viewType);
-        }
+        }        
     }
 }
