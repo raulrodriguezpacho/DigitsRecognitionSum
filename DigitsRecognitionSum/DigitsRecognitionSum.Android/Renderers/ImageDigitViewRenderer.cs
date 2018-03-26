@@ -35,7 +35,7 @@ namespace DigitsRecognitionSum.Droid.Renderers
             if (e.OldElement != null || this.Element == null)
                 return;
 
-            var imageFilePath = Android.OS.Environment.ExternalStorageDirectory + "/DCIM/drs_" + ((ImageDigitRendererView)Element).DigitOrder + ".jpg";
+            var imageFilePath = Android.OS.Environment.ExternalStorageDirectory + "/DCIM/DRS/drs_" + ((ImageDigitRendererView)Element).DigitOrder + ".jpg";
             if (Control != null)
             {
                 try
@@ -44,7 +44,7 @@ namespace DigitsRecognitionSum.Droid.Renderers
                     {
                         var imageFile = new Java.IO.File(imageFilePath);
                         Bitmap bitmap = BitmapFactory.DecodeFile(imageFile.AbsolutePath);
-                        Control.SetImageBitmap(bitmap);
+                        Control.SetImageBitmap(bitmap);                        
                     }
                 }
                 catch (Exception ex)
@@ -52,6 +52,6 @@ namespace DigitsRecognitionSum.Droid.Renderers
 
                 }
             }                
-        }
+        }        
     }
 }

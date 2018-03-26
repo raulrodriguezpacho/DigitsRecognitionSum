@@ -47,7 +47,7 @@ namespace DigitsRecognitionSum.ViewModels
             var result = Task.Run(() => CheckModel());
             if (result.Result)
             {
-                Device.StartTimer(TimeSpan.FromSeconds(2), () =>
+                Device.StartTimer(TimeSpan.FromSeconds(.5), () =>
                 {
                     _navigationService.NavigateToAsync<FirstDigitViewModel>();
                     return false;

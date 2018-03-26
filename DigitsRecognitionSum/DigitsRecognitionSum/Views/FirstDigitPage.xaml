@@ -14,7 +14,7 @@
             </StackLayout>
             <StackLayout VerticalOptions="CenterAndExpand">
                 <renderers:PaintRendererView x:Name="digit" BackgroundColor="White" DigitOrder="1"
-                    HorizontalOptions="Center" HeightRequest="{Binding DigitSize}" WidthRequest="{Binding DigitSize}"/>
+                    HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="{Binding DigitSize}" WidthRequest="{Binding DigitSize}"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
                 <Button Text="CLEAR" Command="{Binding ClearCommand}" FontSize="22"></Button>

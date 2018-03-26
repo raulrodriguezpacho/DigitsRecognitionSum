@@ -53,6 +53,9 @@
     <PackageReference Include="Autofac">
       <Version>4.6.2</Version>
     </PackageReference>
+    <PackageReference Include="Plugin.CurrentActivity">
+      <Version>1.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="25.4.0.2" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="25.4.0.2" />
@@ -74,6 +77,7 @@
     <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\mnist_model_graph.pb" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
@@ -103,10 +107,17 @@
     <AndroidResource Include="Resources\values\colors.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\tensorflow-android-1.7.0-rc0\tensorflow-android-1.7.0-rc0.csproj">
+      <Project>{c8f31b89-abc5-40f5-98d0-4695e3156288}</Project>
+      <Name>tensorflow-android-1.7.0-rc0</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DigitsRecognitionSum\DigitsRecognitionSum.csproj">
       <Project>{acbf7508-25e6-482b-a2cc-6de68347df60}</Project>
       <Name>DigitsRecognitionSum</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\graph_label_strings.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

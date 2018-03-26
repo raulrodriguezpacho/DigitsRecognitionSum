@@ -10,8 +10,8 @@ using System.IO;
 namespace DigitsRecognitionSum.Droid
 {
     public class PaintView : View
-    {
-        Dictionary<int, Paint> paints = new Dictionary<int, Paint>();
+    {        
+        Paint paint = new Paint();
         Dictionary<int, MotionEvent.PointerCoords> coords = new Dictionary<int, MotionEvent.PointerCoords>();
         Canvas drawCanvas;
         Paint drawPaint;
@@ -24,12 +24,16 @@ namespace DigitsRecognitionSum.Droid
         protected override void OnSizeChanged(int w, int h, int oldw, int oldh)
         {
             base.OnSizeChanged(w, h, oldw, oldh);
+
+            if (canvasBitmap != null)
+                canvasBitmap.Recycle();
+
             canvasBitmap = Bitmap.CreateBitmap(w, h, Bitmap.Config.Argb8888);
-            drawCanvas = new Canvas(canvasBitmap);
+            drawCanvas = new Canvas(canvasBitmap);            
 
             drawCanvas.DrawColor(Color.White, PorterDuff.Mode.Add);
 
-            drawPaint = new Paint() { Color = Color.Black, StrokeWidth = 20f, AntiAlias = true };
+            drawPaint = new Paint() { Color = Color.Black, StrokeWidth = 70f, AntiAlias = true };
             drawPaint.SetStyle(Paint.Style.Stroke);
         }
 
@@ -45,8 +49,7 @@ namespace DigitsRecognitionSum.Droid
             {
                 case MotionEventActions.Down:
                     {
-                        int id = e.GetPointerId(0);
-                        paints.Add(id, drawPaint);
+                        int id = e.GetPointerId(0);                        
                         var start = new MotionEvent.PointerCoords();
                         e.GetPointerCoords(id, start);
                         coords.Add(id, start);
@@ -58,8 +61,8 @@ namespace DigitsRecognitionSum.Droid
                         {
                             var id = e.GetPointerId(index);
                             float x = e.GetX(index);
-                            float y = e.GetY(index);
-                            drawCanvas.DrawLine(coords[id].X, coords[id].Y, x, y, paints[id]);
+                            float y = e.GetY(index);                            
+                            drawCanvas.DrawLine(coords[id].X, coords[id].Y, x, y, drawPaint);
                             coords[id].X = x;
                             coords[id].Y = y;
                         }
@@ -68,8 +71,7 @@ namespace DigitsRecognitionSum.Droid
                     }
                 case MotionEventActions.Up:
                     {
-                        int id = e.GetPointerId(0);
-                        paints.Remove(id);
+                        int id = e.GetPointerId(0);                        
                         coords.Remove(id);
                         return true;
                     }
@@ -85,17 +87,45 @@ namespace DigitsRecognitionSum.Droid
         }
 
         public void Save(string tag)
-        {            
+        {
+            if (!Directory.Exists(Android.OS.Environment.ExternalStorageDirectory + "/DCIM/DRS"))
+                Directory.CreateDirectory(Android.OS.Environment.ExternalStorageDirectory + "/DCIM/DRS");
+
+            var imageFilePath = Android.OS.Environment.ExternalStorageDirectory + "/DCIM/DRS/drs_" + tag + ".jpg";
+            var imageFilePathMINST = Android.OS.Environment.ExternalStorageDirectory + "/DCIM/DRS/drs28_" + tag + ".jpg";
             try
             {                
-                using (var os = new FileStream(Android.OS.Environment.ExternalStorageDirectory + "/DCIM/drs_" + tag + ".jpg", FileMode.Create))
-                {
+                using (var os = new FileStream(imageFilePath, FileMode.Create))
+                {                    
                     canvasBitmap.Compress(Bitmap.CompressFormat.Jpeg, 95, os);
                 }
+                var imageFile = new Java.IO.File(imageFilePath);
+                Bitmap bitmap = BitmapFactory.DecodeFile(imageFile.AbsolutePath);                
+                using (var bitmapScaled = Bitmap.CreateScaledBitmap(bitmap, 28, 28, false))
+                {
+                    using (Stream outStream = File.Create(imageFilePathMINST))
+                    {
+                        bitmapScaled.Compress(Bitmap.CompressFormat.Jpeg, 95, outStream);
+                    }
+                    bitmapScaled.Recycle();
+                }
+                bitmap.Recycle();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
+            }
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+            if (canvasBitmap != null)
+            {
+                canvasBitmap.Recycle();
+                canvasBitmap.Dispose();
+                canvasBitmap = null;
+                drawCanvas = null;
             }
         }
     }

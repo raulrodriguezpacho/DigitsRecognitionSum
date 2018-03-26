@@ -1,5 +1,6 @@
 ﻿using DigitsRecognitionSum.Services;
 using Xamarin.Forms;
+using Plugin.CurrentActivity;
 
 namespace DigitsRecognitionSum.Droid.Services
 {

@@ -12,7 +12,7 @@ namespace DigitsRecognitionSum.ViewModels
         private readonly INavigationService _navigationService;
         private readonly IDeviceService _deviceService;
 
-        private double _digitSize = 200;
+        private double _digitSize = 28;
         public double DigitSize
         {
             get { return _digitSize; }

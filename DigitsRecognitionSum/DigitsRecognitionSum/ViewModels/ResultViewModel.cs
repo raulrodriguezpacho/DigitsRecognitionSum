@@ -24,6 +24,28 @@ namespace DigitsRecognitionSum.ViewModels
             }
         }
 
+        private string _resultFirstDigit = "";
+        public string ResultFirstDigit
+        {
+            get { return _resultFirstDigit; }
+            set
+            {
+                _resultFirstDigit = value;
+                OnPropertyChanged(nameof(ResultFirstDigit));
+            }
+        }
+
+        private string _resultSecondDigit = "";
+        public string ResultSecondDigit
+        {
+            get { return _resultSecondDigit; }
+            set
+            {
+                _resultSecondDigit = value;
+                OnPropertyChanged(nameof(ResultSecondDigit));
+            }
+        }
+
         private string _message = string.Empty;
         public string Message
         {
@@ -39,21 +61,25 @@ namespace DigitsRecognitionSum.ViewModels
         {
             _navigationService = navigationService;
             _digitClassifierService = digitClassifierService;            
-            Task.Run(() => Classyfy());            
+            Task.Run(() => Recognize());            
         }
 
-        async Task<bool> Classyfy()
+        async Task<bool> Recognize()
         {
             IsBusy = true;
             bool result = false;
             try
             {
-                var firstNumber = await _digitClassifierService.Classify("");
-
-                var secondNumber = await _digitClassifierService.Classify("");
-
-                Result = (firstNumber + secondNumber).ToString();
-                result = true;
+                int? init = _digitClassifierService.Initialize();
+                if (init.HasValue)
+                {
+                    var firstNumber = await _digitClassifierService.RecognizeDigit("/DCIM/DRS/drs28_1.jpg");
+                    ResultFirstDigit = firstNumber.ToString();
+                    var secondNumber = await _digitClassifierService.RecognizeDigit("/DCIM/DRS/drs28_2.jpg");
+                    ResultSecondDigit = secondNumber.ToString();
+                    Result = (firstNumber + secondNumber).ToString();                    
+                    result = true;
+                }
             }
             catch (Exception ex)
             {

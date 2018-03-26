@@ -8,6 +8,7 @@ namespace DigitsRecognitionSum.Services
     public interface IDigitClassifierService
     {
         bool IsModelAvalilable { get; }
-        Task<int> Classify(string imageFile);
+        int? Initialize();
+        Task<int> RecognizeDigit(string imageFilePath);
     }
 }

@@ -31,8 +31,14 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <renderers:ImageDigitRendererView Grid.Row="0" Grid.Column="0" HeightRequest="140" WidthRequest="140" DigitOrder="1" HorizontalOptions="Center" />
-                    <renderers:ImageDigitRendererView Grid.Row="1" Grid.Column="0" HeightRequest="140" WidthRequest="140" DigitOrder="2" HorizontalOptions="Center" />
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0">
+                        <Label Text="{Binding ResultFirstDigit}" TextColor="#B51011" FontSize="26" />
+                        <renderers:ImageDigitRendererView  HeightRequest="140" WidthRequest="140" DigitOrder="1" HorizontalOptions="Center" />    
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0">
+                        <Label Text="{Binding ResultSecondDigit}" TextColor="#B51011" FontSize="26" />
+                        <renderers:ImageDigitRendererView  HeightRequest="140" WidthRequest="140" DigitOrder="2" HorizontalOptions="Center" />
+                    </StackLayout>
                     <Label Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" VerticalOptions="Center" Text="+" TextColor="White" FontSize="120" HorizontalOptions="Start" />
                     <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" HeightRequest="2" Margin="20,5,20,5" />
                     <Label Grid.Row="3" Grid.Column="0"  TextColor="{Binding Result, Converter={StaticResource ResultToColorConverter}}" FontSize="140" Text="{Binding Result}" HorizontalOptions="Center" />
